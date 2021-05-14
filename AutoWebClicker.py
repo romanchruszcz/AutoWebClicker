@@ -7,9 +7,16 @@ main = Tk()
 main.title("Auto/Manual Clicker")
 main.geometry("500x500")
 
-
-
-
+Pic1= PhotoImage(file="images/mouse1.png")
+Pic2= PhotoImage(file="images/mouse2.png")
+Pic3= PhotoImage(file="images/mouse3.png")
+Pic4= PhotoImage(file="images/mouse4.png")
+Label1 = Label(main,text= "      ")
+Label1.grid(column=0,row=0,columnspan = 8, rowspan=2)
+Label2 = Label(main, text = "Select mouse button:")
+Label2.grid(column=4,row =4)
+LabelSet =Label(text= "Set parameters for Your clicking:")
+LabelSet.grid(column =0, row= 2, columnspan = 2)
 def runauto():
    
     mylabel= Label(main, text ="Your mouse cursor position will be set for clicking in:")
@@ -40,13 +47,9 @@ def calc():
 #Manual = Label(text = "Input coordinates in pixels below to select clicking point")
 #Manual.grid(column=1, row = 2)
 
-Pic1= PhotoImage(file="images/mouse1.png")
-Pic2= PhotoImage(file="images/mouse2.png")
-Pic3= PhotoImage(file="images/mouse3.png")
-Pic4= PhotoImage(file="images/mouse4.png")
 
-Label1 = Label(main,text= "      ")
-Label1.grid(column=0,row=0,columnspan = 8, rowspan=2)
+
+
 #Label2 = Label(main,text= "Choose type of position set")
 #Label2.grid(column= 3,row=0,columnspan = 3)
 
@@ -57,13 +60,13 @@ Label1.grid(column=0,row=0,columnspan = 8, rowspan=2)
 #ButtonManual.grid(column=4, row=1)
 
 ButtonLeft = Button(main,image = Pic1, borderwidth =0)
-ButtonLeft.grid(column =2, row=2)
+ButtonLeft.grid(column =2, row=4)
 ButtonMiddle = Button(main, image= Pic2, borderwidth = 0)
-ButtonMiddle.grid(column=3, row=2)
+ButtonMiddle.grid(column=3, row=4)
 ButtonRight = Button (main, image= Pic3, borderwidth = 0)
-ButtonRight.grid(column= 4, row =2)
+ButtonRight.grid(column= 4, row =4)
 ButtonNone = Label(main, image= Pic4, borderwidth = 0)
-ButtonNone.grid(column=2, row=3, columnspan = 3)
+ButtonNone.grid(column=2, row=5, columnspan = 3)
 
 TextBoxWebSite=Entry(main,text= "Insert website address to be opened", width=25,bg="white",fg="black")
 TextBoxWebSite.insert(0,"website address")
