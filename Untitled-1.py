@@ -21,7 +21,6 @@ def manual():
     WidthEntry.focus()
 
 def auto():
-    x = 5
     WidthEntry.configure(state=DISABLED)
     HeightEntry.configure(state=DISABLED)
     NumClicks.focus()
