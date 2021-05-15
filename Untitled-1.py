@@ -62,8 +62,8 @@ IntervalLabel = Label(main, text= "Clicks interval:", font=("Helvetica",12))
 IntervalLabel.grid(column=1, row=7)
 Interval = Entry(main, width = 15)
 Interval.grid(column=2, row=7)
+spacerLabel = Label(main, text= " dwdwdw    ")
+spacerLabel.grid(column=1,row= 8,columnspan=2)
 
-WebsiteLabel = Label(main, text= "Enter website address:", font =("Helvetica",12))
-WebsiteLabel.grid(column=2,row= 8)
 
 main.mainloop()
