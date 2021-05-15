@@ -2,16 +2,41 @@ from tkinter import *
 import time
 import pyautogui
 
+global ap
+global mp
+    
+
 def selected_left():
+
+    left = 1
+
+    right = 0
+
+    middle =0
     HiddenLabel.configure(text="LEFT")
 
 def selected_right():
-   HiddenLabel.configure(text="RIGHT")
+    right= 1
 
+    left = 0
+
+    middle = 0
+    HiddenLabel.configure(text="RIGHT")
+    
 def selected_middle():
+
+    middle = 1
+
+    left = 0 
+
+    right= 0
     HiddenLabel.configure(text="MIDDLE")
 
 def manual():
+    global mp
+    global ap
+    mp = 1
+    ap = 0
     WidthEntry.config(state=NORMAL)
     WidthEntry.delete(0,"end")
     WidthEntry.insert(0,"width")
@@ -21,6 +46,10 @@ def manual():
     WidthEntry.focus()
 
 def auto():
+    global ap
+    global mp
+    ap = 1
+    mp = 0
     WidthEntry.configure(state=DISABLED)
     HeightEntry.configure(state=DISABLED)
     NumClicks.focus()
@@ -137,7 +166,36 @@ WebsiteEntry.grid(column=1, row =10, columnspan = 2)
 spacerLabel1 = Label(main, text= "  ")
 spacerLabel1.grid(column=1,row= 11,columnspan=2)
 
-StartButton= Button(main, text = "START", font = ("Helvetica", 22), bg = "green", fg = "white")
+StartButton= Button(main, text = "START", font = ("Helvetica", 22), bg = "green", fg = "white",command=startapp)
 StartButton.grid(column =5, row=10, columnspan =3)
+
+def startapp():
+    
+    if mp = 1:
+
+
+        x = WidthEntry
+        y = HeightEntry
+        int = Interval
+        num = NumClicks
+        if left = 1:
+            pyautogui.click(x, y, clicks = num, interval = int, button = "left", duration=0)
+        elif right = 1:
+            pyautogui.click(x, y, clicks = num, interval = int, button = "right", duration=0)
+        elif middle = 1:
+            pyautogui.click(x, y, clicks = num, interval = int, button= "middle", duration=0)
+    elif valuea = 1:
+        pyautogui.position(a,b)
+        int = Interval
+        num = NumClicks
+        if left = 1:
+            pyautogui.click(a, b, clicks = num, interval = int, button = "left", duration=0)
+        elif right = 1: 
+            pyautogui.click(a, b, clicks = num, interval = int, button = "right", duration=0)
+        elif middle = 1:
+            pyautogui.click(a, b, clicks = num, interval = int, button= "middle", duration=0)
+
+
+
 
 main.mainloop()
