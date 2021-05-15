@@ -5,7 +5,7 @@ import pyautogui
 
 main = Tk()
 main.title("Auto/Manual Clicker")
-main.geometry("500x500")
+main.geometry("550x550")
 
 Pic1= PhotoImage(file="images/mouse1.png")
 Pic2= PhotoImage(file="images/mouse2.png")
@@ -14,6 +14,8 @@ Pic4= PhotoImage(file="images/mouse4.png")
 
 TitleLabel = Label(main, text= "Set parameters for Your clicking:",font=("Helvetica", 24),pady = 20,padx = 5)
 TitleLabel.grid(column = 0, row = 0, columnspan = 8)
+SpanLabel = Label(main, text = "    ")
+SpanLabel.grid(column = 0,row = 1)
 
 SettingLabel = Label(main, text = "Choose type of settings:", font= ("Helvetica", 12),pady = 20)
 SettingLabel.grid(column = 0, row = 1, columnspan = 3)
@@ -38,7 +40,7 @@ ButtonRight.grid(column= 7, row =2,sticky = W,rowspan =2)
 ButtonNone = Label(main, image= Pic4, borderwidth = 0)
 ButtonNone.grid(column=5, row=4, columnspan = 3,rowspan= 3)
 
-WidHeiLabel = Label(main, text = "Set coordinates in pixels:", font= ("Helvetica", 10),pady = 20)
+WidHeiLabel = Label(main, text = "Set coordinates in pixels:", font= ("Helvetica", 12),pady = 20)
 WidHeiLabel.grid(column = 1, row = 3,columnspan = 4, rowspan =3, sticky = N)
 
 
@@ -50,6 +52,18 @@ HeightEntry = Entry (main, width = 15)
 HeightEntry.insert(1,"height")
 HeightEntry.grid(column = 2, row = 4)
 
+OptionsLabel = Label(main, text="Set options:",font= ("Helvetica", 12))
+OptionsLabel.grid(column = 1, row=5)
+NumClicksLabel = Label(main, text= "Number of clicks:", font= ("Helvetica",12))
+NumClicksLabel.grid(column =1, row =6)
+NumClicks = Entry(main, width= 15)
+NumClicks.grid(column = 2, row = 6)
+IntervalLabel = Label(main, text= "Clicks interval:", font=("Helvetica",12))
+IntervalLabel.grid(column=1, row=7)
+Interval = Entry(main, width = 15)
+Interval.grid(column=2, row=7)
 
+WebsiteLabel = Label(main, text= "Enter website address:", font =("Helvetica",12))
+WebsiteLabel.grid(column=2,row= 8)
 
 main.mainloop()
