@@ -4,37 +4,34 @@ import pyautogui
 
 global ap
 global mp
-    
 
+
+ap = 1
+mp = 0
 def selected_left():
-
+    global left
     left = 1
-
     right = 0
-
     middle =0
     HiddenLabel.configure(text="LEFT")
 
 def selected_right():
+    global right
     right= 1
-
     left = 0
-
     middle = 0
     HiddenLabel.configure(text="RIGHT")
     
 def selected_middle():
-
+    global middle
     middle = 1
-
     left = 0 
-
     right= 0
     HiddenLabel.configure(text="MIDDLE")
 
 def manual():
-    global mp
     global ap
+    global mp
     mp = 1
     ap = 0
     WidthEntry.config(state=NORMAL)
@@ -77,9 +74,55 @@ def open_new_window():
     LabelAuthor = Label(main2, text = "Author: Roman Chruszcz", font =("Helvetica",10), pady = 9, fg = "blue")
     LabelAuthor.grid(column=0, row =1, columnspan =3)
 
+def startapp():
+    
+    if mp == 1:
+        x = 5
+        xa = WidthEntry.get()
+        xa = int(xa)
+        ya = HeightEntry.get()
+        ya= int(ya)
+        ainta = Interval.get()
+        ainta =int(ainta)
+        num = NumClicks.get()
+        num = int(num)
+        while x >5:
+            HiddenLabel.configure(text="Click will start in" + x)
+            x =x-1
+            time.sleep(1)
+        if left == 1:
+
+            pyautogui.click(xa, ya, clicks = num, interval = ainta, button = "left", duration=0)
+        elif right == 1:
+
+            pyautogui.click(xa, ya, clicks = num, interval = ainta, button = "right", duration=0)
+        elif middle == 1:
+
+            pyautogui.click(xa, ya, clicks = num, interval = ainta, button= "middle", duration=0)
+    elif ap == 1:
+        x = 5
+        a,b = pyautogui.position()
+        ainta = Interval.get()
+        ainta= int(ainta)
+        num = NumClicks.get()
+        num = int(num)
+        while x > 5:
+            main.HiddenLabel.configure(text=x)
+            x = x-1
+            time.sleep(1)
+        if left == 1:
+            pyautogui.click(a, b, clicks = num, interval = ainta, button = "left", duration=0)
+        elif right == 1: 
+            pyautogui.click(a, b, clicks = num, interval = ainta, button = "right", duration=0)
+        elif middle == 1:
+            pyautogui.click(a, b, clicks = num, interval = ainta, button= "middle", duration=0)
+
+
+
+
 main = Tk()
 main.title("Auto/Manual Web Clicker")
-main.geometry("520x550")
+main.geometry("500x580")
 my_menu = Menu(main,bg="white")
 main.config(menu=my_menu)
 
@@ -171,28 +214,26 @@ StartButton.grid(column =5, row=10, columnspan =3)
 
 def startapp():
     
-    if mp = 1:
-
-
+    if mp == 1:
         x = WidthEntry
         y = HeightEntry
         int = Interval
         num = NumClicks
-        if left = 1:
+        if left == 1:
             pyautogui.click(x, y, clicks = num, interval = int, button = "left", duration=0)
-        elif right = 1:
+        elif right == 1:
             pyautogui.click(x, y, clicks = num, interval = int, button = "right", duration=0)
-        elif middle = 1:
+        elif middle == 1:
             pyautogui.click(x, y, clicks = num, interval = int, button= "middle", duration=0)
-    elif valuea = 1:
+    elif ap == 1:
         pyautogui.position(a,b)
         int = Interval
         num = NumClicks
-        if left = 1:
+        if left == 1:
             pyautogui.click(a, b, clicks = num, interval = int, button = "left", duration=0)
-        elif right = 1: 
+        elif right == 1: 
             pyautogui.click(a, b, clicks = num, interval = int, button = "right", duration=0)
-        elif middle = 1:
+        elif middle == 1:
             pyautogui.click(a, b, clicks = num, interval = int, button= "middle", duration=0)
 
 
